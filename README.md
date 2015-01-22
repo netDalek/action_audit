@@ -17,7 +17,13 @@ We offer some default implementation for each of them, but your are free to writ
 
 ActionsObserver is a class or module, often mixin. It starts ActionAuditor at the beginning of action and stop at the end.
 No changes will be stored if ActionAuditor isn't started.
-It also stores action attributes. You can use ActionAuditor::Controller for Rails controllers and RescueConcern for resque tasks or write your own.
+It also stores action attributes related to the action. Action attributes can be stored from any place of code
+
+```ruby
+ActionAudit.add_params(user_id: user.id)
+```
+
+You can use ActionAuditor::Controller for Rails controllers and RescueConcern for resque tasks or write your own.
 
 ```ruby
 require 'action_auditor/controller_concern'
@@ -58,11 +64,3 @@ If you want to see some info logs from this gem you should also configure the lo
 ```ruby
 ActionAuditor.logger = Rails.logger
 ```
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
