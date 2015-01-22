@@ -1,4 +1,4 @@
-module ActionAuditor::ResqueConcern
+module ActionAudit::ResqueConcern
   extend ActiveSupport::Concern
 
   module ClassMethods

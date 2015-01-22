@@ -1,11 +1,11 @@
-class ActionAuditor::Factory
+class ActionAudit::Factory
   class << self
     def current
       Thread.current[:action_auditor]
     end
 
     def start
-      Thread.current[:action_auditor] = ActionAuditor::EventProcessor.new(ActionAuditor.store)
+      Thread.current[:action_auditor] = ActionAudit::EventProcessor.new(ActionAudit.store)
     end
 
     def flush

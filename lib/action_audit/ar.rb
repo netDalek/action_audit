@@ -1,4 +1,4 @@
-module ActionAuditor
+module ActionAudit
   module Ar
     class UpdateObserver
       include Singleton
@@ -8,28 +8,28 @@ module ActionAuditor
         if changes.present?
           was = Hash[changes.map{|key, value| [key, value.first]}]
           become = Hash[changes.map{|key, value| [key, value.last]}]
-          ActionAuditor.add_change(record, was, become)
+          ActionAudit.add_change(record, was, become)
         end
       rescue Exception => e
-        ActionAuditor.error(e)
+        ActionAudit.error(e)
       end
     end
 
     class DestroyObserver
       include Singleton
       def after_commit(record)
-        ActionAuditor.add_change(record, record.attributes, {})
+        ActionAudit.add_change(record, record.attributes, {})
       rescue Exception => e
-        ActionAuditor.error(e)
+        ActionAudit.error(e)
       end
     end
 
     class CreateObserver
       include Singleton
       def after_commit(record)
-        ActionAuditor.add_change(record, {}, record.attributes)
+        ActionAudit.add_change(record, {}, record.attributes)
       rescue Exception => e
-        ActionAuditor.error(e)
+        ActionAudit.error(e)
       end
     end
 

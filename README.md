@@ -1,7 +1,8 @@
 # ActionAuditor
 
-Allows to record models changes. It offer observers to store ActiveRecord models changes, but you are free to write your own.
-There is also mixins for your controllers, but it isn't mandatory too.
+Allows to record models changes. It can be ActiveRecord models or any other.
+Observer for ActiveRecord are included, for other models you should write your own code.
+You should also take care where to store this changes.
 
 We split all changes into actions. Action can be rails controller action or resque/sidekiq/rake task.
 Every action can have unlimited number af attributes. For controller action it can be current user id, response status and anything else.

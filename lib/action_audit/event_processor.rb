@@ -1,5 +1,5 @@
-class ActionAuditor::EventProcessor
-  delegate :info, to: ActionAuditor
+class ActionAudit::EventProcessor
+  delegate :info, to: ActionAudit
 
   def initialize(store)
     @store = store

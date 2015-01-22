@@ -1,4 +1,4 @@
-require 'action_auditor'
+require 'action_audit'
 require 'rspec'
 require "rspec/expectations"
 require 'pry'

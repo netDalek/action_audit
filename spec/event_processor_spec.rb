@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ActionAuditor::EventProcessor do
+RSpec.describe ActionAudit::EventProcessor do
   let(:params1) { {a: 1} }
   let(:params2) { {b: 1} }
 

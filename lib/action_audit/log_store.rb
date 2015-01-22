@@ -1,5 +1,5 @@
 class LogStore
-  delegate :info, to: ActionAuditor
+  delegate :info, to: ActionAudit
 
   def upsert_action(params, id)
     id ||= SecureRandom.uuid
