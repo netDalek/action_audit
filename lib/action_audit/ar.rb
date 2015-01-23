@@ -4,7 +4,6 @@ module ActionAudit
       include Singleton
       def after_commit(record)
         changes = record.previous_changes
-        binding.pry
         if changes.present?
           was = Hash[changes.map{|key, value| [key, value.first]}]
           become = Hash[changes.map{|key, value| [key, value.last]}]
