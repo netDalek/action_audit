@@ -18,7 +18,8 @@ module ActionAudit
     attr_accessor :logger
 
     def info(message)
-      logger.info(message) if logger
+      return unless logger
+      logger.info("[action_audit] #{message}")
     end
 
     def error(message)

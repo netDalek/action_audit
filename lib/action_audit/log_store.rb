@@ -3,7 +3,7 @@ class LogStore
 
   def upsert_action(params, id)
     id ||= SecureRandom.uuid
-    info "[action_audit] [#{id}] #{params}"
+    info "[action] [#{id}] #{params}"
     id
   end
 
@@ -14,6 +14,6 @@ class LogStore
       was: was,
       become: become
     }
-    info "[audit_changeset] [#{action_id}] #{params}"
+    info "[changeset] [#{action_id}] #{params}"
   end
 end
